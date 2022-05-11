@@ -201,8 +201,7 @@ a:focus-visible {
 	transition: opacity 0.3s;
 }
 
-.stack__item:hover,
-.stack__item:focus {
+.stack__item:hover {
 	opacity: 0.5;
 }
 
@@ -355,7 +354,7 @@ a:focus-visible {
 }
 
 .content__nav:hover svg,
-.content__nav:focus svg {
+.content__nav:focus-visible svg {
 	opacity: 1;
 }
 
@@ -407,7 +406,7 @@ a:focus-visible {
 		grid-template-areas: 'back slides'
 							'title slides'	
 							'... slides';
-		grid-template-columns: 1fr calc(var(--slide-height) * 1.5);
+		grid-template-columns: 1fr 50vw;
 		grid-template-rows: auto 1fr 10vh;
 		grid-column-gap: var(--page-padding);
 		padding: var(--page-padding) var(--slide-gap) var(--page-padding) var(--page-padding);
@@ -439,7 +438,7 @@ a:focus-visible {
 	}
 	.slides {
 		background: transparent;
-		width: calc(var(--slide-height) * 1.5);
+		width: 50vw;
 		margin-left: auto;
 		margin-right: var(--slide-gap);
 	}
