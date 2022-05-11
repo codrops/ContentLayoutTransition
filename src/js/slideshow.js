@@ -78,18 +78,8 @@ export class Slideshow {
 		this.DOM.items.forEach((item, position) => {
 			// Clicking on a stack item reveals the slideshow navigation and the item's content
 			item.addEventListener('click', () => {
-
-				// Update the current value
-				if ( this.isOpen || this.current === position ) {
-					return;
-				}
-				this.current = position;
-				
 				// Show the item's content
 				this.open(item);
-
-				this.isOpen = !this.isOpen;
-
 			});
 		});
 
@@ -107,7 +97,6 @@ export class Slideshow {
 		// Trigger the close() on scroll by using the gsap observer plugin
 		const scrollFn = () => {
 			if ( this.isOpen && !this.isAnimating ) {
-				this.isAnimating = true;
 				this.close();
 				this.scrollObserver.disable();
 			}
@@ -129,7 +118,13 @@ export class Slideshow {
 	 */
 	open(stackItem) {
 
+		if ( this.isAnimating || this.isOpen ) {
+			return;
+		}
 		this.isAnimating = true;
+		
+		// Update the current value
+		this.current = this.DOM.items.indexOf(stackItem);
 
 		// enable the observer (closes teh slideshow on scroll/touch)
 		this.scrollObserver.enable();
@@ -160,9 +155,10 @@ export class Slideshow {
 
 		// Flip
 		Flip.from(state, {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			onComplete: () => {
+				this.isOpen = true;
 				this.isAnimating = false;
 			},
 			// seems to solve a bug in firefox
@@ -175,19 +171,19 @@ export class Slideshow {
 			yPercent: -101
 		}, 0)
 		.to(this.contentItems[this.current].DOM.texts, {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			startAt: {yPercent: 101},
 			yPercent: 0
 		}, 0)
 		.to(this.DOM.backCtrl, {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			startAt: {opacity: 0},
 			opacity: 1
 		}, 0)
 		.to([this.DOM.navArrows.prev, this.DOM.navArrows.next], {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			startAt: {
 				opacity: 0,
@@ -203,6 +199,9 @@ export class Slideshow {
 	 */
 	close() {
 
+		if ( this.isAnimating || !this.isOpen ) {
+			return;
+		}
 		this.isAnimating = true;
 
 		this.scrollObserver.disable();
@@ -220,7 +219,7 @@ export class Slideshow {
 
 		// Flip
 		Flip.from(state, {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			onComplete: () => {
 				this.DOM.content.classList.remove('content--open');
@@ -239,17 +238,17 @@ export class Slideshow {
 			yPercent: 0
 		}, 0)
 		.to(this.contentItems[this.current].DOM.texts, {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			yPercent: -101
 		}, 0)
 		.to(this.DOM.backCtrl, {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			opacity: 0
 		}, 0)
 		.to([this.DOM.navArrows.prev, this.DOM.navArrows.next], {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			y: pos => pos ? 100 : -100,
 			opacity: 0
@@ -278,7 +277,7 @@ export class Slideshow {
 		
 		gsap.timeline()
 		.to(this.DOM.el, {
-			duration: 1.1,
+			duration: 1,
 			ease: 'expo',
 			y: direction === 'next' ? `-=${winsize.height/2 + winsize.height*.02}` : `+=${winsize.height/2 + winsize.height*.02}`,
 			onComplete: () => {
