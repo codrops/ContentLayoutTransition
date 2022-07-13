@@ -137,6 +137,7 @@ a:focus-visible {
 .frame__title {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .frame__title-main {
@@ -157,6 +158,10 @@ a:focus-visible {
 
 .frame__title-back svg {
 	fill: #fff;
+}
+
+.frame__title-prev {
+	width: 100%;
 }
 
 .frame__logo {
