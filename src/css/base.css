@@ -127,7 +127,8 @@ a:focus-visible {
 }
 
 .frame {
-	padding: 3rem 5vw;
+	padding: 1.5rem 5vw 0;
+	z-index: 100;
 	text-align: center;
 	position: relative;
 	position: absolute;
@@ -379,7 +380,6 @@ a:focus-visible {
 	}
 	.frame {
 		text-align: left;
-		z-index: 100;
 		top: 0;
 		left: 0;
 		display: grid;
