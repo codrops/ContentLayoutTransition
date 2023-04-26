@@ -1,3 +1,5 @@
+@import url("https://use.typekit.net/ziz2ade.css");
+
 *,
 *::after,
 *::before {
@@ -29,7 +31,7 @@ body {
 	position: relative;
 	color: var(--color-text);
 	background-color: var(--color-bg);
-	font-family: acumin-pro, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Sofia Pro', Segoe UI, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -170,7 +172,7 @@ a:focus-visible {
 }
 
 .frame__logo-title {
-	font-family: wayfinder-cf, serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Sofia Pro', Segoe UI, Helvetica, Arial, sans-serif;
 	font-weight: 100;
 	font-style: normal;
 	font-size: 2.75rem;
@@ -249,7 +251,7 @@ a:focus-visible {
 .title__main {
 	font-size: 11vw;
 	margin: 0;
-	font-family: wayfinder-cf, serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Sofia Pro', Segoe UI, Helvetica, Arial, sans-serif;
 	font-weight: 100;
 	line-height: 1;
 }
@@ -301,7 +303,7 @@ a:focus-visible {
 }
 
 .content__item-title {
-	font-family: wayfinder-cf, serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Sofia Pro', Segoe UI, Helvetica, Arial, sans-serif;
 	font-weight: 100;
 	line-height: 1;
 	font-size: clamp(2rem,9vw,10rem);
@@ -409,7 +411,7 @@ a:focus-visible {
 	}
 	.content {
 		grid-template-areas: 'back slides'
-							'title slides'	
+							'title slides'
 							'... slides';
 		grid-template-columns: 1fr 50vw;
 		grid-template-rows: auto 1fr 10vh;
@@ -439,7 +441,7 @@ a:focus-visible {
 		justify-self: end;
 	}
 	.content__nav-wrap {
-		grid-area: slides; 
+		grid-area: slides;
 	}
 	.slides {
 		background: transparent;
