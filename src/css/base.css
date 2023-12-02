@@ -173,7 +173,7 @@ a:focus-visible {
 	font-family: wayfinder-cf, serif;
 	font-weight: 100;
 	font-style: normal;
-	font-size: 2.75rem;
+	font-size: 1.75rem;
 	margin: 0;
 }
 
@@ -197,7 +197,7 @@ a:focus-visible {
 }
 
 .stack__item {
-	opacity: 0.2;
+	opacity: 0.4;
 	width: 100%;
 	height: var(--stack-item-height);
 	background-size: cover;
@@ -230,12 +230,12 @@ a:focus-visible {
 
 .slides .stack__item {
 	pointer-events: none;
-	opacity: 0.5;
+	opacity: 0.4;
 	height: var(--slide-height);
 }
 
 .slides .stack__item--current {
-	opacity: 0.6;
+	opacity: 0.75;
 }
 
 .title {
@@ -354,7 +354,7 @@ a:focus-visible {
 	stroke: #fff;
 	stroke-width: 3px;
     width: auto;
-    height: 100%;
+    height: 40%;
     opacity: 0.5;
     transition: opacity 0.3s;
 }
